@@ -1,0 +1,17 @@
+###
+GET http://localhost:8983/solr/ HTTP/1.1
+Accept: application/json
+Content-type: application/json
+Authorization: Basic c29scjpHaGJkdG4xMjMhQCM=
+# Authorization:Basic YWRtaW46YWRtaW4=
+
+
+###
+GET http://localhost:8983/solr/#/files/query?q=*:*&q.op=OR&indent=true&useParams=
+
+###
+GET http://localhost:8983/ HTTP/1.1
+Accept: application/json
+Content-type: application/json
+# Authorization: Basic c29scjpHaGJkdG4xMjMhQCM=
+# Authorization:Basic YWRtaW46YWRtaW4=
