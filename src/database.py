@@ -1,17 +1,12 @@
-# from typing import AsyncGenerator
-# from sqlalchemy import MetaData
-# from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-# from sqlalchemy.ext.declarative import declarative_base
-# from sqlalchemy.orm import sessionmaker
-
 from src import cfg
 
 import databases
 import sqlalchemy
 
 # sys.path.append("..")
-# engine = sqlalchemy.create_engine(settings.DB_SQLITE)
-# database = databases.Database(settings.DB_SQLITE)
+
+print(cfg.DB_DSN)
+
 engine = sqlalchemy.create_engine(cfg.DB_DSN)
 database = databases.Database(cfg.DB_DSN)
 metadata = sqlalchemy.MetaData(schema=cfg.DB_SCHEMA) # чтобы складывать в одну схему

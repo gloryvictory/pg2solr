@@ -1,12 +1,19 @@
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
+# from dotenvy import load_env, read_file
+# from os import environ
 import os
 from time import strftime  # Load just the strftime Module from Time
 
-load_dotenv()
+# load_dotenv()
+# load_env(read_file('.env'))
+# my_var = environ.get('SOLR_PASS')
+# print(my_var)
 
-
-SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
-SERVER_PORT = os.getenv("SERVER_PORT", 8000)
+SOLR_HOST = os.getenv("SOLR_HOST", "localhost")
+SOLR_PORT = os.getenv("SOLR_PORT", 8983)
+SOLR_COLL = os.getenv("SOLR_COLL", "files")
+SOLR_USER = os.getenv("SOLR_USER", "solr")
+SOLR_PASS = os.getenv("SOLR_PASS", "Ghbdtn123!")
 
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = os.getenv("DB_PORT", 5432)

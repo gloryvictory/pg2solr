@@ -1,16 +1,37 @@
+from src.database import database, metadata, engine
+from datetime import datetime
+import ormar
 
-
-# from src import cfg
-# from src.database import database, metadata, engine
 import pysolr
 
+from src import cfg
+from src.models import FILES_M
+
+
+async def try_pg():
+    cnt = 0
+    files = await FILES_M.objects.all()
+    # for file_item in files:
+    # # async for file_item in FILES_M.objects.iterate():
+    #     if cnt < 10:
+    #         assert  print(file_item.file_path)
+    #     else:
+    #         break
+    #     cnt += 1
+
+
 def try_solr():
-
     # Create a client instance. The timeout and authentication options are not required.
-    solr = pysolr.Solr('http://localhost:8983/solr/files', always_commit=True, auth = ('solr', 'Ghbdtn123!'))     # timeout = 10,
+    str_solr_conn = f"http://{cfg.SOLR_HOST}:{cfg.SOLR_PORT}/solr/{cfg.SOLR_COLL}"
+    print(str_solr_conn)
+    solr = pysolr.Solr(str_solr_conn,
+                       always_commit=True,
+                       auth=(cfg.SOLR_USER, cfg.SOLR_PASS)
+                       )  # timeout = 10,
     # solr = pysolr.Solr('http://solr:Ghbdtn123!@localhost:8983/solr/files', always_commit=True, timeout=10)
-
     str_tmp = solr.ping()
+    print(str_tmp)
+    str_tmp = solr.delete(q='*:*')
     print(str_tmp)
     str_tmp = solr.add(
         [
@@ -27,8 +48,8 @@ def try_solr():
     print(str_tmp)
 
 
-
 if __name__ == "__main__":
-    try_solr()
+    try_pg()
+    # try_solr()
     # set_logger()
     # uvicorn.run("main:app", host=cfg.SERVER_HOST, port=cfg.SERVER_PORT, reload=True)
