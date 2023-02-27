@@ -3,6 +3,7 @@ import asyncio
 from src.database import database, metadata, engine
 from datetime import datetime
 import ormar
+from multiprocessing import Pool
 
 import pysolr
 
@@ -17,12 +18,52 @@ from src.models import FILES_M
 #     except ValueError:
 #         return 0
 
-async def try_pg():
 
+# def work_log(data_for_work):
+#     print(" Process name is %s waiting time is %s seconds" % (data_for_work[0], data_for_work[1]))
+#     time.sleep(int(data_for_work[1]))
+#     print(" Process %s Executed." % data_for_work[0])
+
+
+async def try_pg2():
+
+    # p = Pool(2)
+    # p.map(work_log, w)
+
+    # time1 = datetime.now()
+    # print('Starting at :' + str(time1))
+    #
+    # # solr_delete()
+    # if not database.is_connected:
+    #     await database.connect()
+    # cnt = 0
+    # # print(cnt)
+    # files = await FILES_M.objects.all() #limit(10).all()
+    # len_files = len(files)
+    #
+    # for file_item in files:
+    #     # print(file_item.file_path)
+    #     print(f"{cnt} of {len_files}. Осталось {len_files - cnt}")
+    #     file_path = file_item.file_path
+    #     file_size = file_item.file_size
+    #     solr_add(file_path, file_size)
+    #     cnt += 1
+    #     # time3 = datetime.now()
+    #     # print('one:' + str(time3))
+    #     # print('time left: ' + str(time3 - time1))
+    #     # file_path = file_item.file_path
+    #
+    # time2 = datetime.now()
+    # print('Finishing at :' + str(time2))
+    # print('Total time : ' + str(time2 - time1))
+    print('DONE !!!!')
+
+
+async def try_pg():
     time1 = datetime.now()
     print('Starting at :' + str(time1))
 
-    solr_delete()
+    # solr_delete()
     if not database.is_connected:
         await database.connect()
     cnt = 0

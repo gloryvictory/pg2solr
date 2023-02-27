@@ -21,7 +21,7 @@ class FILES_M(ormar.Model):
     file_path: str = ormar.Text()
     file_folder: str = ormar.Text()
     file_name: str = ormar.String(max_length=255)
-    file_ext: str = ormar.String(max_length=11)
+    file_ext: str = ormar.String(max_length=255)
     file_size: str = ormar.BigInteger()
     file_ctime: str = ormar.DateTime(default=datetime.now)
     file_mtime: str = ormar.DateTime(default=datetime.now)

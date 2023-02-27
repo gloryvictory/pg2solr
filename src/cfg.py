@@ -11,7 +11,7 @@ from time import strftime  # Load just the strftime Module from Time
 
 SOLR_HOST = os.getenv("SOLR_HOST", "localhost")
 SOLR_PORT = os.getenv("SOLR_PORT", 8983)
-SOLR_COLL = os.getenv("SOLR_COLL", "files")
+SOLR_COLL = os.getenv("SOLR_COLL", "files1")
 SOLR_USER = os.getenv("SOLR_USER", "solr")
 SOLR_PASS = os.getenv("SOLR_PASS", "Ghbdtn123!")
 
